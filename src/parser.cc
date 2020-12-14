@@ -1394,10 +1394,9 @@ bool checkCanonicalLinkNames(const sdf::Root *_root)
     return modelResult;
   };
 
-  for (uint64_t m = 0; m < _root->ModelCount(); ++m)
+  if (_root->Model())
   {
-    auto model = _root->ModelByIndex(m);
-    result = checkModelCanonicalLinkName(model) && result;
+    result = checkModelCanonicalLinkName(_root->Model()) && result;
   }
 
   for (uint64_t w = 0; w < _root->WorldCount(); ++w)
@@ -1531,10 +1530,9 @@ bool checkFrameAttachedToNames(const sdf::Root *_root)
     return worldResult;
   };
 
-  for (uint64_t m = 0; m < _root->ModelCount(); ++m)
+  if (_root->Model())
   {
-    auto model = _root->ModelByIndex(m);
-    result = checkModelFrameAttachedToNames(model) && result;
+    result = checkModelFrameAttachedToNames(_root->Model()) && result;
   }
 
   for (uint64_t w = 0; w < _root->WorldCount(); ++w)
@@ -1669,10 +1667,9 @@ bool checkFrameAttachedToGraph(const sdf::Root *_root)
     return worldResult;
   };
 
-  for (uint64_t m = 0; m < _root->ModelCount(); ++m)
+  if (_root->Model())
   {
-    auto model = _root->ModelByIndex(m);
-    result = checkModelFrameAttachedToGraph(model) && result;
+    result = checkModelFrameAttachedToGraph(_root->Model()) && result;
   }
 
   for (uint64_t w = 0; w < _root->WorldCount(); ++w)
@@ -1752,10 +1749,9 @@ bool checkPoseRelativeToGraph(const sdf::Root *_root)
     return worldResult;
   };
 
-  for (uint64_t m = 0; m < _root->ModelCount(); ++m)
+  if (_root->Model())
   {
-    auto model = _root->ModelByIndex(m);
-    result = checkModelPoseRelativeToGraph(model) && result;
+    result = checkModelPoseRelativeToGraph(_root->Model()) && result;
   }
 
   for (uint64_t w = 0; w < _root->WorldCount(); ++w)
@@ -1880,10 +1876,9 @@ bool checkJointParentChildLinkNames(const sdf::Root *_root)
     return modelResult;
   };
 
-  for (uint64_t m = 0; m < _root->ModelCount(); ++m)
+  if (_root->Model())
   {
-    auto model = _root->ModelByIndex(m);
-    result = checkModelJointParentChildNames(model) && result;
+    result = checkModelJointParentChildNames(_root->Model()) && result;
   }
 
   for (uint64_t w = 0; w < _root->WorldCount(); ++w)
